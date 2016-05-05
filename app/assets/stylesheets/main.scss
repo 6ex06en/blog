@@ -1,0 +1,29 @@
+// Place all the styles related to the Main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$blog_bg: white;
+
+body {
+  background: url("bg.jpg")
+}
+.logo__container {
+  background: $blog_bg;
+  padding: 1% 20%;
+
+  .logo__header {
+    font-size: 3.5em
+  }
+}
+
+.sign__container {
+  background: $blog_bg;
+
+  .sign__links {
+    display: inline-block;
+    padding-right: 20px;
+    font-size: 1.3em;
+  }
+}
