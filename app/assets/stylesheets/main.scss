@@ -9,8 +9,17 @@ $blog_bg: white;
 body {
   background: url("bg.jpg")
 }
-.logo__container {
+
+.container {
   background: $blog_bg;
+}
+
+main {
+  height: 80vh;
+}
+
+.logo__container {
+  height: 15vh;
   padding: 1% 20%;
 
   .logo__header {
@@ -26,4 +35,7 @@ body {
     padding-right: 20px;
     font-size: 1.3em;
   }
+}
+
+footer {
 }
