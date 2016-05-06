@@ -1,4 +1,43 @@
 .row
   .col-md-12.col-lg-12
-    .logo__container
-      %h1.logo__header.text-center Blog
+    .page-header
+      %h1.header.text-center 
+        =link_to "Blog", root_path
+// .row
+//   .col-md-12.col-lg-12
+//     .sign__container.text-right
+//       .sign__links
+//         - if signed_in?
+//           %span< 
+//             Привет,
+//             %b #{current_user.name}!
+//           = link_to("Создать пост", "#")
+//           = link_to("Выйти", signout_path, method: :delete)
+//         - else
+//           = link_to("Зарегистрироваться", signup_path)
+//           = link_to("Войти", signin_path)
+.row
+  .col-sm-12.col-lg-12
+    .navbar.navbar-default{role: "navigation"}
+      .container-fluid
+        - if signed_in?
+          .navbar-header
+            %a.navbar-brand
+              Привет,
+              %b #{current_user.name}!
+          .collapse.navbar-collapse{data: {target:"#bs-example-navbar-collapse-1"}}
+            %p.navbar-text.navbar-right
+              = link_to("Выйти", signout_path, method: :delete, class: "navbar-link")
+            %p.navbar-text.navbar-right
+              = link_to("Создать пост", new_user_post_path(current_user), class: "navbar-link")
+        - else
+          .collapse.navbar-collapse{data: {target:"#bs-example-navbar-collapse-1"}}
+            %p.navbar-text.navbar-right
+              = link_to("Войти", signin_path, class: "navbar-link")
+            %p.navbar-text.navbar-right
+              = link_to("Зарегистрироваться", signup_path, class: "navbar-link")
+.row
+  .flash.text-center
+    - flash.each do |key,value|
+      %div{class: "alert alert-#{key}"} #{value}
+    

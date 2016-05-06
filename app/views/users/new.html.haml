@@ -1,0 +1,20 @@
+.row
+  = form_for @user, html: {role: "form", class: "form-horizontal"} do |s|
+    .form-group
+      = s.label "Имя", for: :name, class: "col-sm-offset-1 col-lg-offset-1 control-label col-md-3 col-lg-3"
+      .col-md-5.col-lg-5
+        = s.text_field :name, class: "form-control", id: :name, placeholder: "Имя"
+        = error_container @user, :name
+    .form-group
+      = s.label "Пароль", for: :password, class: "col-sm-offset-1 col-lg-offset-1 control-label col-md-3 col-lg-3"
+      .col-md-5.col-lg-5
+        = s.password_field :password, class: "form-control", id: :password, placeholder: "Пароль"
+        = error_container @user, :password
+    .form-group
+      = s.label "Подтверждение пароля", for: :password_confirmation, class: "col-sm-offset-1 col-lg-offset-1 control-label col-md-3 col-lg-3"
+      .col-md-9.col-lg-5
+        = s.password_field :password_confirmation, class: "form-control", id: :password_confirmation, placeholder: "Подтвердите пароль"
+        = error_container @user, :password_confirmation
+    .form-group
+      .col-md-offset-4.col-lg-offset-4.col-md-2.col-lg-2
+        = s.submit "Зарегистрироваться", class: "btn btn-primary"

@@ -9,5 +9,8 @@
   %body
     .container
       = render partial: "layouts/header"
-      = yield
+      .row
+        .col-md-12.col-lg-12
+          %main
+            = yield
       = render partial: "layouts/footer"

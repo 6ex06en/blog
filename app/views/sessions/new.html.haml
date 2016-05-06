@@ -1,0 +1,14 @@
+.row
+  = form_for :session, url: sessions_path , html: {role: "form", class: "form-horizontal"} do |s|
+    .form-group
+      = s.label "Имя", for: :name, class: "col-sm-offset-1 col-lg-offset-1 control-label col-md-3 col-lg-3"
+      .col-md-5.col-lg-5
+        = s.text_field :name, class: "form-control", id: :name, placeholder: "Имя"
+    .form-group
+      = s.label "Пароль", for: :password, class: "col-sm-offset-1 col-lg-offset-1 control-label col-md-3 col-lg-3"
+      .col-md-5.col-lg-5
+        = s.password_field :password, class: "form-control", id: :password, placeholder: "Пароль"
+    .form-group
+      .col-md-offset-4.col-lg-offset-4.col-md-2.col-lg-2
+        = s.submit "Войти", class: "btn btn-primary"
+
