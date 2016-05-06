@@ -4,10 +4,17 @@
       = s.label "Название", for: :name, class: "col-sm-offset-1 col-lg-offset-1 control-label col-md-3 col-lg-3"
       .col-md-5.col-lg-5
         = s.text_field :name, class: "form-control", id: :name, placeholder: "Название"
+        = error_container @post, :name
     .form-group
       = s.label "Содержимое", for: :content, class: "col-sm-offset-1 col-lg-offset-1 control-label col-md-3 col-lg-3"
       .col-md-5.col-lg-5
         = s.text_area :content, class: "form-control", id: :content, placeholder: "Содержимое", rows: 3
+        = error_container @post, :content
+    .form-group
+      = s.label "Изображение", for: :picture, class: "col-sm-offset-1 col-lg-offset-1 control-label col-md-3 col-lg-3"
+      .col-md-5.col-lg-5
+        = s.file_field :picture, class: "form-control", id: :picture, rows: 3
+        = error_container @post, :picture
     .form-group
       .col-md-offset-4.col-lg-offset-4.col-md-2.col-lg-2
         = s.submit "Создать", class: "btn btn-primary"

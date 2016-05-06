@@ -30,5 +30,11 @@ module SessionsHelper
   def current_user?(user)
     user == current_user
   end
+  
+  def loged_in?
+    unless current_user
+      redirect_to root_path, notice: "Вы не авторизовались"
+    end
+  end
 
 end
