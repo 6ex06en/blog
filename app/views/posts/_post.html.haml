@@ -1,0 +1,16 @@
+%article.article.text-justify
+  %h3
+    =link_to post.name, user_post_path(post.user, post)
+    .article__image-container.text-center
+      = cl_image_tag post.picture
+  %p #{truncate(post.content, length: 600, separator: '.')}
+  .article__control-panel.navbar.navbar-default
+    .container-fluid
+      .collapse.navbar-collapse
+        %p.navbar-text
+          = link_to "читать дальше", user_post_path(post.user, post), class: "read_more"
+        - if signed_in? && owner?(post)
+          %p.navbar-text.navbar-right
+            = link_to("удалить", user_post_path(current_user, post), method: :delete)
+          %p.navbar-text.navbar-right
+            = link_to("редактировать", edit_user_post_path(current_user, post))

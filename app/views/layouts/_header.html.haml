@@ -1,24 +1,11 @@
 .row
   .col-md-12.col-lg-12
     .page-header
-      %h1.header.text-center 
+      %h1.header.text-center
         =link_to "Blog", root_path
-// .row
-//   .col-md-12.col-lg-12
-//     .sign__container.text-right
-//       .sign__links
-//         - if signed_in?
-//           %span< 
-//             Привет,
-//             %b #{current_user.name}!
-//           = link_to("Создать пост", "#")
-//           = link_to("Выйти", signout_path, method: :delete)
-//         - else
-//           = link_to("Зарегистрироваться", signup_path)
-//           = link_to("Войти", signin_path)
 .row
   .col-sm-12.col-lg-12
-    .navbar.navbar-default{role: "navigation"}
+    .navbar.navbar-default.bg-success{role: "navigation"}
       .container-fluid
         - if signed_in?
           .navbar-header
@@ -40,4 +27,3 @@
   .flash.text-center
     - flash.each do |key,value|
       %div{class: "alert alert-#{key}"} #{value}
-    

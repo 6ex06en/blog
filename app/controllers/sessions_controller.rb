@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def new
   end
-  
+
   def create
     @user = User.find_by(name: params[:session][:name])
     if @user && @user.authenticate(params[:session][:password])
@@ -15,6 +15,6 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out if current_user
-    redirect_to :back 
+    redirect_to :back
   end
 end
