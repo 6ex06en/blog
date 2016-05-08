@@ -18,7 +18,7 @@ RSpec.describe "Авторизация", type: "feature", js: true do
     end
 
     it "должна отрендериться главная страница" do
-      expect(page).to have_selector(".pagination")
+      expect(page).to have_selector(".articles__container")
     end
   end
 
@@ -37,6 +37,11 @@ RSpec.describe "Авторизация", type: "feature", js: true do
 
     it "не должно отражаться имя авторизованного пользователя" do
       expect(page).not_to have_content(user.name)
+    end
+
+    it "должна отрендериться страница входа" do
+      expect(page).to have_content("Пароль")
+      expect(page).to have_selector("input[type='submit'][value='Войти']")
     end
 
   end

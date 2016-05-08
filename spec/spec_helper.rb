@@ -4,6 +4,7 @@ require 'capybara/rspec'
 require 'database_cleaner'
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
+Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,
@@ -158,7 +159,7 @@ RSpec.configure do |config|
       MSG
     end
     DatabaseCleaner.clean_with(:truncation)
-  end  
+  end
 
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction

@@ -1,5 +1,5 @@
 module SessionsHelper
-  
+
   def sign_in(user)
     remember_token = User.new_remember_token
     cookies.permanent[:remember_token] = remember_token
@@ -30,10 +30,11 @@ module SessionsHelper
   def current_user?(user)
     user == current_user
   end
-  
+
   def loged_in?
     unless current_user
-      redirect_to root_path, notice: "Вы не авторизовались"
+      flash[:danger] = "Вы не авторизовались"
+      redirect_to root_path
     end
   end
 

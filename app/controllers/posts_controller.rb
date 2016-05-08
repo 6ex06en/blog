@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
-  before_action :loged_in?
-  before_action ->(id = params[:id]){ post_owner?(id) }, except: [:new, :create]
+  before_action :loged_in?, except: [:show]
+  # before_action :loged_in?
+  before_action ->(id = params[:id]){ post_owner?(id) }, except: [:new, :create, :show]
 
 
   def new
@@ -8,6 +9,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find_by(id: params[:id])
   end
 
   def edit
