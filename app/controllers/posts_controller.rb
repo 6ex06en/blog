@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   before_action :loged_in?, except: [:show]
-  # before_action :loged_in?
   before_action ->(id = params[:id]){ post_owner?(id) }, except: [:new, :create, :show]
 
 
@@ -36,7 +35,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to :back
+    redirect_to root_path
   end
 
   private

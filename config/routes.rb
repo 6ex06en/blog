@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
 
   root "main#index"
-  
+
   get 'main/index'
-  
-  match '/signup',  to: 'users#new',            via: 'get'
-  match '/signin',  to: 'sessions#new',         via: 'get'
-  match '/signout', to: 'sessions#destroy',     via: 'delete'
+
+  match '/signup',      to: 'users#new',            via: 'get'
+  match '/signin',      to: 'sessions#new',         via: 'get'
+  match '/signout',     to: 'sessions#destroy',     via: 'delete'
+
+  match '/users/:user_id/posts/:id', to: 'posts#destroy', via: 'delete',
+                                                          as: :destroy_post
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :users do

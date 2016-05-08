@@ -63,7 +63,7 @@ RSpec.describe "Редактирование поста.", type: "feature", js: 
     end
   end
 
-  describe "Не авторизованный пользователь" do
+  describe "Неавторизованный пользователь" do
 
     describe "не сможет зайти на страницу редактирования поста" do
       before { visit edit_user_post_path(owner, post) }

@@ -9,6 +9,7 @@ $blog_bg: white;
 body {
   background: url("bg.jpg");
   background-attachment: fixed;
+  padding: 5px 0;
 }
 
 .container {
@@ -57,4 +58,11 @@ main {
 }
 
 footer {
+  margin: 0 -15px;
+  padding: 0 15px;
+  line-height: 2.5;
+  background: #AFAEAE;
+  border-radius: 3px;
+  text-align: right;
+  font-weight: bold;
 }
