@@ -7,7 +7,7 @@
 $blog_bg: white;
 
 body {
-  background: url("bg.jpg");
+  background: url('<%= asset_path "bg.jpg" %>');
   background-attachment: fixed;
   padding: 5px 0;
 }
@@ -22,7 +22,6 @@ main {
 
 .page-header {
   height: 15vh;
-  // padding: 1% 20%;
 
   .header {
     font-size: 3.5em;
