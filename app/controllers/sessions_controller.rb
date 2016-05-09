@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+
+  before_action :already_loged, only: [:create]
+
   def new
   end
 
@@ -17,4 +20,14 @@ class SessionsController < ApplicationController
     sign_out if current_user
     redirect_to root_path
   end
+
+  private
+
+  def already_loged
+    if current_user
+      flash[:danger] = "Вы уже авторизовались!"
+      redirect_to root_path
+    end
+  end
+
 end
