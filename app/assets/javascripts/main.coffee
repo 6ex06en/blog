@@ -3,4 +3,4 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-  $(".flash").fadeOut(3000)
+  $(".flash").fadeOut(4000)
